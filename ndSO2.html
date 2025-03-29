@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB THEO DÕI CHẤT LƯỢNG KHÔNG KHÍ TỈNH BÌNH DƯƠNG 2024</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: none;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20PX;
+            width: 100%;
+            font-size: 24px;
+            text-align: center;
+        }
+        .toolbar {
+            width: 100%;
+            background: #f8f9fa;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            border-bottom: 2px solid #ccc;
+        }
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+        #map {
+            width: 190%;
+            height: 85vh;
+        }
+        #image-container {
+            width: 25%;
+            text-align: right;
+        }
+        #image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            width: 100%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background: #007bff;
+            color: white;
+            padding: 0PX;
+            width: 100%;
+            font-size: 24px;
+            text-align: center;
+            border: #f4f4f4;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            font-size: 18px;
+            border: #f4f4f4;
+        }
+        .navbar a:hover {
+            background: #0056b3;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>BẢN ĐỒ NỒNG ĐỘ SO2 TRUNG BÌNH HÀNG THÁNG TỈNH BÌNH DƯƠNG NĂM 2024</header>
+    <main>
+        <div id="map"></div>
+        <div id="image-container">
+            <img src="chugaiSO2.jpg" alt="Hình ảnh mẫu">
+        </div>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([10.7769, 106.7009], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        // Lớp "ranhgioixabd1" từ GeoServer (WMS)
+        var ranhgioixabd1 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl1', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var ranhgioibd = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl2', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang3 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl3', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang4 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl4', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang5 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl5', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang6 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl6', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang7 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl7', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang8 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl8', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang9 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl9', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang10 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl10', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang11 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl11', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Lớp "ranhgioibd" từ GeoServer (WMS)
+        var thang12 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+            layers: 'BinhDuong:SO2pl12', // Thay bằng tên lớp chính xác
+            format: 'image/png',
+            transparent: true
+        }).addTo(map);
+        // Bật/tắt lớp dữ liệu
+        var overlayMaps = {
+            "Tháng 1": ranhgioixabd1,
+            "Tháng 2": ranhgioibd,
+            "Tháng 3": thang3,
+            "Tháng 4": thang4,
+            "Tháng 5": thang5,
+            "Tháng 6": thang6,
+            "Tháng 7": thang7,
+            "Tháng 8": thang8,
+            "Tháng 9": thang9,
+            "Tháng 10": thang10,
+            "Tháng 11": thang11,
+            "Tháng 12": thang12
+        };
+        L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
+        </script>
+</body>
+</html>

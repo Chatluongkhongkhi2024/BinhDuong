@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Với Menu</title>
+    <style>
+        /* styles.css */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0px;
+    padding: 0;
+    background-color: #f4f4f4;
+    list-style-type: none; /* Loại bỏ dấu chấm */
+    line-height: 1.6;
+}
+h1{
+    color: red;
+}
+ul {
+    list-style-type: none; /* Loại bỏ dấu chấm */
+    padding: 0;
+    margin: 0;
+}
+.container{
+    max-width: 960px;
+    margin: 0px auto;
+}
+nav{
+    display: flex;
+    background-color: #e2e1e7;
+    font-size: 18px
+}
+body {
+    background-color: #cce4d1;
+    text-align: center;
+    list-style-type: none; /* Loại bỏ dấu chấm */
+    font-size: 18px
+}
+header {
+    background: #94f6b2;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: none;
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+ #main-menu{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px
+ }
+ #main-menu li a{
+    position: relative;
+ }
+ #main-menu li a{
+    color: blue;
+    display: block;
+    padding: 18px 20px;
+    text-decoration: none;
+ }
+ #main-menu ul.sub-menu{
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    list-style: none;
+    width: 200px;
+    border: 1px solid white;
+    display: none;
+    font-size: 18px
+ }
+ #main-menu li:hover>ul.sub-menu{
+    display: block;
+ }
+        .header {
+    display: flex;
+    align-items: center;  /* Canh giữa theo chiều dọc */
+    justify-content: center;  /* Canh giữa theo chiều ngang */
+    gap: 20px;  /* Khoảng cách giữa ảnh và chữ */
+}
+
+.logo {
+    width: 100px; /* Điều chỉnh kích thước ảnh */
+    height: auto;
+}
+.title {
+    font-size: 24px;
+    font-weight: bold;
+
+}
+p{
+    font-size: 22px;
+}
+p {
+    flex: 2;
+    text-align: left;
+    padding-left: 30px;
+    line-height: 1.6;
+}
+main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        } 
+        .image {
+            flex: 1;
+            text-align: right;
+            margin-right: 50px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <div class="header">
+        <img src="Screenshot 2025-03-27 154928.jpg" alt="Air Quality" class="logo">
+        <h1 class="title">WEB THEO DÕI CHẤT LƯỢNG KHÔNG KHÍ TỈNH BÌNH DƯƠNG 2024</h1>
+    </div>
+</head>
+<body>
+    <ul id="main-menu">
+        
+        <li><a href="dh.html">Bản đồ</a>
+            <ul class="sub-menu">
+                <li><a href="NO2nongdo.html">Bản đồ NO2</a></li>
+                <li><a href="geoserver.html">Bản đồ O3</a></li>
+                <li><a href="ndCO.html">Bản đồ CO</a></li>
+                <li><a href="ndSO2.html">Bản đồ SO2</a></li>
+            </ul>
+        </li>
+        <li><a href="dc.html">Dữ liệu tại trạm quan trắc</a>
+            <ul class="sub-menu">
+                <li><a href="NO2.html">Nồng độ NO2</a></li>
+                <li><a href="O3.html">Nồng độ O3</a></li>
+                <li><a href="CO.html">Nồng độ CO</a></li>
+                <li><a href="SO2.html">Nồng độ SO2</a></li>
+            </ul>
+        </li>
+        <li><a href="kh.html">Thống kê</a></li>
+        <li><a href="bd.html">Biểu Đồ</a>
+            <ul class="sub-menu">
+                <li><a href="btt.html">Biểu Đồ Tháng</a></li>
+                <li><a href="bd.html">Bản Đồ Ngày</a></li>
+            </ul>
+        </li>
+        <li><a href="tv.html">Liên hệ</a></li>
+    </ul>
+    </script>
+    <h2>GIỚI THIỆU CHUNG TỈNH BÌNH DƯƠNG</h2>
+    <main>
+    <p>Bình Dương là một tỉnh nằm ở miền Đông Nam Bộ. Diện tích tự nhiên của tỉnh khoảng 2.695,2 km2 (khoảng 0,83% diện tích tự nhiên của cả nước), nằm trong 11o52’ – 12o18’ Vĩ Bắc, 106°45′- 107°67’30” kinh độ Đông.
+        <br>+ Phía Bắc nằm giáp tỉnh Bình Phước.</br>
+        <br>+ Phía Nam giáp thành phố Hồ Chí Minh.</br>
+        <br>+ Phía Tây giáp tỉnh Tây Ninh và thành phố Hồ Chí Minh.</br>
+        <br>+ Phía Đông giáp tỉnh Đồng Nai.</br>
+        <br>Hiện nay, tỉnh Bình Dương gồm 9 đơn vị hành chính cấp huyện, bao gồm 5 thành phố và 4 huyện: Thành phố Thủ Dầu Một, Thành phố Dĩ An, Thành phố Thuận An, Thành phố Bến Cát, Thị phố Tân Uyên, Huyện Bắc Tân Uyên, Huyện Bàu Bàng, Huyện Dầu Tiếng, Huyện Phú Giáo.</br></p>
+    <!-- <p>+ Phía Bắc nằm giáp tỉnh Bình Phước.</p>
+    <p>+ Phía Nam giáp thành phố Hồ Chí Minh.</p>
+    <p>+ Phía Tây giáp tỉnh Tây Ninh và thành phố Hồ Chí Minh.</p>
+    <p>+ Phía Đông giáp tỉnh Đồng Nai.</p>
+    <p>Hiện nay, tỉnh Bình Dương gồm 9 đơn vị hành chính cấp huyện, bao gồm 5 thành phố và 4 huyện: Thành phố Thủ Dầu Một, Thành phố Dĩ An, Thành phố Thuận An, Thành phố Bến Cát, Thị phố Tân Uyên, Huyện Bắc Tân Uyên, Huyện Bàu Bàng, Huyện Dầu Tiếng, Huyện Phú Giáo. </p> -->
+    <img src="bdhc.jpg" alt="bản đồ">
+    </main>
+</body>
+</html>
