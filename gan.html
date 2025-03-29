@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu đồ O3 từ CSV</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Biểu đồ Nồng độ O₃ theo Ngày</h2>
+    <input type="file" id="csvFile" accept="ee-chartO3.csv">
+    <canvas id="o3Chart"></canvas>
+    <script>
+        document.getElementById('csvFile').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const lines = e.target.result.split('\n').map(line => line.trim()).filter(line => line);
+                const labels = [];
+                const data = [];
+                
+                for (let i = 1; i < lines.length; i++) { // Bỏ qua dòng tiêu đề
+                    const [date, o3] = lines[i].split(',');
+                    labels.push(date);
+                    data.push(parseFloat(o3));
+                }
+                
+                const ctx = document.getElementById('o3Chart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Nồng độ O₃ (µg/m³)',
+                            data: data,
+                            borderColor: 'blue',
+                            borderWidth: 2,
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: { title: { display: true, text: 'Ngày' } },
+                            y: { title: { display: true, text: 'Nồng độ O₃ (µg/m³)' } }
+                        }
+                    }
+                });
+            };
+            reader.readAsText(file);
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu đồ O₃ từ CSV</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Biểu đồ Nồng độ O₃ theo Ngày</h2>
+    <canvas id="o3Chart"></canvas>
+
+    <script>
+        let chart; // Lưu trữ biểu đồ để cập nhật lại
+
+        async function loadCSV() {
+            try {
+                const response = await fetch("ee-chartO3.csv"); // Đọc file CSV có sẵn trong dự án
+                const lines = csvText.split('\n').map(line => line.trim()).filter(line => line);
+                
+                const labels = [];
+                const data = [];
+
+                for (let i = 1; i < lines.length; i++) { // Bỏ qua dòng tiêu đề
+                    const [day, o3] = lines[i].split(','); // Đọc dữ liệu
+                    labels.push(`Ngày ${day}`); // Ghi chú ngày: "Ngày 1", "Ngày 2", ...
+                    data.push(parseFloat(o3));
+                }
+
+                // Nếu biểu đồ đã tồn tại → Cập nhật lại dữ liệu
+                if (chart) {
+                    chart.data.labels = labels;
+                    chart.data.datasets[0].data = data;
+                    chart.update();
+                } else {
+                    // Tạo biểu đồ lần đầu
+                    const ctx = document.getElementById('o3Chart').getContext('2d');
+                    chart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Nồng độ O₃ (µg/m³)',
+                                data: data,
+                                borderColor: 'blue',
+                                borderWidth: 2,
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: { title: { display: true, text: 'Ngày trong năm' } },
+                                y: { title: { display: true, text: 'Nồng độ O₃ (µg/m³)' } }
+                            }
+                        }
+                    });
+                }
+
+            } catch (error) {
+                console.error("Lỗi tải file CSV:", error);
+            }
+        }
+
+        // Tải dữ liệu lần đầu
+        loadCSV();
+
+        // Cập nhật biểu đồ mỗi 5 giây (5000ms)
+        setInterval(loadCSV, 5000);
+    </script>
+</body>
+</html>

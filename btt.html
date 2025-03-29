@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Tích Chọn Hình Ảnh</title>
+    <style>
+        table {
+            width: 10%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        img {
+            display: none;
+            width: 100%;
+            height: 100%;
+            margin: 5px;
+        }
+        .image-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        header {
+            background: blue;
+            color: white;
+            padding: 20PX;
+            width: 100%;
+            font-size: 24px;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>BIỂU ĐỒ NỒNG ĐỘ CÁC CHẤT Ô NHIỄM TRONG KHÔNG KHÍ TRUNG BÌNH HÀNG THÁNG TỈNH BÌNH DƯƠNG NĂM 2024</header>
+    <MAIN>
+    <table>
+        <tr>
+            <th>Chọn</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="checkbox" data-image="image1"> Biểu Đồ NO₂</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="checkbox" data-image="image2"> Biểu Đồ SO₂</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="checkbox" data-image="image3"> Biểu Đồ CO</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="checkbox" data-image="image3"> Biểu Đồ O3</td>
+        </tr>
+    </table>
+    <div class="image-container">
+        <img id="image1" src="bdNO2.jpg" alt="Hình 1">
+        <img id="image2" src="bdSO2.jpg" alt="Hình 2">
+        <img id="image3" src="bdCO.jpg" alt="Hình 3">
+        <img id="image3" src="bdO3.jpg" alt="Hình 3">
+    </div>
+</MAIN>
+    <script>
+        const checkboxes = document.querySelectorAll('.checkbox');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const imageId = checkbox.dataset.image;
+                const image = document.getElementById(imageId);
+                
+                if (checkbox.checked) {
+                    image.style.display = 'block';
+                } else {
+                    image.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
