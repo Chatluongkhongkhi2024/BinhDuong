@@ -125,7 +125,7 @@
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
         // Lớp "ranhgioixabd1" từ GeoServer (WMS)
-        var ranhgioixabd1 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+        var ranhgioixabd1 = L.tileLayer.wms('http://192.168.1.5:8080/geoserver/BinhDuong/wms', {
             layers: 'BinhDuong:NO2pl', // Thay bằng tên lớp chính xác
             format: 'image/png',
             transparent: true
