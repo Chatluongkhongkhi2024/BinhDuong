@@ -197,7 +197,7 @@
             transparent: true
         }).addTo(map);
         // Lớp "ranhgioibd" từ GeoServer (WMS)
-        var thang13 = L.tileLayer.wms('http://localhost:8080/geoserver/BinhDuong/wms', {
+        var thang13 = L.tileLayer.wms('http://192.168.1.5:8080/geoserver/BinhDuong/wms', {
             layers: 'BinhDuong:ranhgioibd', // Thay bằng tên lớp chính xác
             format: 'image/png',
             transparent: true
